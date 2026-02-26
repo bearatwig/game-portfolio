@@ -8,6 +8,7 @@ const k = kaplay({
     canvas: document.getElementById("game"), 
     background: [128, 0, 128],
     global: true,
+
 });
 
 //Loading of sprites & sounds etc .
@@ -62,7 +63,7 @@ k.scene("main", async () => {
         k.pos(),
         k.scale(scaleFactor),
         {
-            speed: 250,
+            speed: 100,
             direction: "down",
             isInDialogue: false,
         },
@@ -74,7 +75,7 @@ k.scene("main", async () => {
     for (const layer of layers){
         if (layer.name === "boundaries") {
             for (const boundary of layer.objects) {
-                // sPrepare the componrents that ALL boundaries have
+                // Prepare the componrents that ALL boundaries have
                 const components = [
                     k.area({
                     shape: new k.Rect(k.vec2(0), boundary.width, boundary.height),
@@ -120,7 +121,7 @@ k.scene("main", async () => {
     const closest = items[0];
 
     
-        if (closest && player.worldPos().dist(closest.worldPos()) < 100 && !player.isInDialogue) {
+        if (closest && player.worldPos().dist(closest.worldPos()) < 25 && !player.isInDialogue) {
             player.isInDialogue = true;
 
             // Trigger the dialogue with just the boundary name (closest.msg)
@@ -131,18 +132,17 @@ k.scene("main", async () => {
     });
     
 
-
-    //camera scaling for different aspect ratios 
-    setCamScale(k);
-
-    k.onResize(() => {
-        setCamScale(k);
-    });
-
-
-    //camera position for player 
+    //camera scaling logic 
     k.onUpdate(() => {
-        k.camPos(player.pos.add(k.vec2(0, 100)));;
+        const mapWidth = 432 * scaleFactor;
+        const mapHeight = 320 * scaleFactor;
+
+        const stretchX = k.width() / mapWidth;
+        const stretchY = k.height() / mapHeight;
+        //to scretch screen
+        k.camScale(k.vec2(stretchX, stretchY));
+        
+        k.camPos(mapWidth / 2, mapHeight / 2); 
     });
 
 
