@@ -1,6 +1,6 @@
 import kaplay from "kaplay";
-import { scaleFactor } from "./constants";
-import { displayDialogue, setCamScale } from "./utils";
+import { scaleFactor } from "./constants.js";
+import { displayDialogue, setCamScale } from "./utils.js";
 
 
 
