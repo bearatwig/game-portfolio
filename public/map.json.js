@@ -140,7 +140,7 @@
                         {
                          "name":"message",
                          "type":"string",
-                         "value":"Here is my github link: https:\/\/github.com\/bearatwig\n\nEnjoy :) \n"
+                         "value":"My github link is in my resume :) "
                         }],
                  "rotation":0,
                  "type":"",
@@ -245,7 +245,7 @@
                         {
                          "name":"message",
                          "type":"string",
-                         "value":""
+                         "value":"Hi!, I'm Evan. Welcome to my mini home"
                         }],
                  "rotation":0,
                  "type":"",
