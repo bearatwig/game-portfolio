@@ -3,6 +3,23 @@ import { scaleFactor } from "./constants.js";
 import { displayDialogue, setCamScale } from "./utils.js";
 
 
+//Entry Page 
+const enterBtn = document.getElementById("enter-btn");
+const introOverlay = document.getElementById("intro-overlay");
+
+enterBtn.addEventListener("click", () => {
+    // Hide the overlay
+    introOverlay.classList.add("hidden-overlay");
+
+    // Resume Audio 
+    if (k.getAudioContext().state === "suspended") {
+        k.getAudioContext().resume();
+    }
+
+    k.play("blip");
+});
+
+
 
 const k = kaplay({
     canvas: document.getElementById("game"), 

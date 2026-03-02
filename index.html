@@ -14,6 +14,15 @@
 </script>
   </head>
   <body>
+
+    <div id="intro-overlay">
+      <div class="intro-content">
+        <h1>EVAN</h1>
+        <p>Interactive Portfolio</p>
+        <button id="enter-btn">ENTER</button>
+      </div>
+    </div>
+
     <style>
 
       @font-face {
@@ -21,6 +30,44 @@
         src: url("public/monogram.ttf");
       }
 
+
+      #intro-overlay {
+        position: fixed;
+        inset: 0; /* Shortcut for top, left, right, bottom: 0 */
+        background: #311047; 
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: 2000; 
+        transition: transform 0.8s cubic-bezier(0.87, 0, 0.13, 1), opacity 0.5s;
+        color: white;
+        text-align: center;
+      }
+
+      #enter-btn {
+        margin-top: 2rem;
+        padding: 1rem 2rem;
+        font-family: monogram, monospace;
+        font-size: 1.5rem;
+        background: white;
+        border: none;
+        cursor: pointer;
+        border-radius: 4px;
+        transition: scale 0.2s, background 0.2s;
+      }
+
+      #enter-btn:hover {
+        scale: 1.1;
+        background: #eee;
+      }
+
+      /* Class to trigger the "Exit" animation */
+      .hidden-overlay {
+        opacity: 0;
+        pointer-events: none;
+        transform: translateY(-100%); /* Slides the curtain up */
+      }
+      
       body{
         font-family:monogram, monospace;
         font-size: 2rem; 
