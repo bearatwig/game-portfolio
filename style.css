@@ -1,6 +1,7 @@
 @font-face {
         font-family:monogram;
         src: url("./public/monogram.ttf");
+        
       }
 
       .scanlines {
@@ -75,6 +76,7 @@
         font-family:monogram, monospace;
         font-size: 2rem; 
         overflow:hidden;
+        color: #333;
       }
 
       /* Fix the canvas size and prevent stretching */
@@ -137,7 +139,7 @@
         top: 1vh;
         display: flex;
         flex-direction: column;
-        color: rgb(238, 238, 238);
+        color: rgb(255, 253, 208);
         user-select:none;
       }
       
